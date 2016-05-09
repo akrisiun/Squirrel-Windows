@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Mono.Options;
-using Octokit;
+//using Octokit;
 using Splat;
 using Squirrel;
 using Squirrel.Json;
@@ -63,19 +63,19 @@ namespace SyncReleases
                 var releaseDirectoryInfo = new DirectoryInfo(releaseDir ?? Path.Combine(".", "Releases"));
                 if (!releaseDirectoryInfo.Exists) releaseDirectoryInfo.Create();
 
-                var githubException = default(Exception);
-                try {
-                    await SyncImplementations.SyncFromGitHub(repoUrl, token, releaseDirectoryInfo);
-                    return 0;
-                } catch (Exception ex) {
-                    githubException = ex;
-                    Console.Error.WriteLine("Attemping to sync URL as remote RELEASES folder");
-                }
+                //var githubException = default(Exception);
+                //try {
+                //    await SyncImplementations.SyncFromGitHub(repoUrl, token, releaseDirectoryInfo);
+                //    return 0;
+                //} catch (Exception ex) {
+                //    githubException = ex;
+                //    Console.Error.WriteLine("Attemping to sync URL as remote RELEASES folder");
+                //}
 
                 try {
                     await SyncImplementations.SyncRemoteReleases(new Uri(repoUrl), releaseDirectoryInfo);
-                } catch (Exception) {
-                    Console.Error.WriteLine("Failed to sync URL as GitHub repo: " + githubException.Message);
+                } catch (Exception ex) {
+                    Console.Error.WriteLine("Failed to sync URL as GitHub repo: " + ex.Message); // githubException.Message);
                     throw;
                 }
             }

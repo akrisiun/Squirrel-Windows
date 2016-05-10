@@ -179,3 +179,16 @@ nunit-Squirrel.Tests.xml
 tests/Test.xml
 
 ext/*.xml
+ext/Microsoft.*.dll
+ext/Splat.dll
+ext/Squirrel.dll
+ext/System.*.dll
+ext/ru/
+ext/de/
+ext/es/
+ext/fr/
+ext/it/
+ext/ja/
+ext/zh-Han[st]/
+ext/ko/
+ext/NuGet.*.dll
